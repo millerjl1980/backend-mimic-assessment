@@ -47,6 +47,7 @@ import random
 import sys
 
 __author__ = "Justin Miller"
+# Took about an hour to complete both functions
 
 
 def create_mimic_dict(filename):
@@ -78,7 +79,6 @@ def create_mimic_dict(filename):
             else:
                 mimic_dict[prev_word].append(word)
                 prev_word = word
-    print(mimic_dict)
     return mimic_dict
 
 
@@ -89,8 +89,14 @@ def print_mimic(mimic_dict, start_word):
         - Randomly select a new word from the next-list
         - Repeat this process 200 times
     """
- 
-    pass
+    show_word = start_word
+    for words in range(200):
+        print(show_word)
+        nexts = mimic_dict.get(show_word)
+        if not nexts:
+            nexts = mimic_dict['']
+        show_word = random.choice(nexts)
+
 
 # Provided main(), calls mimic_dict() and mimic()
 def main():
